@@ -4,7 +4,7 @@ const {infoCleaner, simpleCleaner} = require("../utils")
 
 
 const getAllDrivers = async () =>{
-    const driversDB = await Driver.findAll();
+    const driversDB = await Driver.findAll({include: {model: Team}});
     const {data} = await axios.get("http://localhost:5000/drivers");
 
     const driversApi = await infoCleaner(data);
@@ -49,8 +49,18 @@ const getDriver = async (id, created) =>{
 const createDriver = async (name, lastName, description, image, nationality, dob, teams) =>{
     const driver = await Driver.create({name, lastName, description, image, nationality, dob, created: true});
 
-    for (let i = 0; i < teams.length; i++){
-        await driver.addTeam(teams[i]);
+    // console.log(teams)
+    const teamsId = [];
+    for (const team of teams){
+        foundTeam = await Team.findOne({
+            where: {
+                name: team
+            }
+        })
+     teamsId.push(foundTeam);   
+    }
+    for (let i = 0; i < teamsId.length; i++){
+        await driver.addTeam(teamsId[i]);
     }
 
     return driver

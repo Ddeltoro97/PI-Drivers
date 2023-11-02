@@ -10,6 +10,7 @@ const infoCleaner = (array) => array.map(driver =>{
         description: driver.description ? driver.description : "No description available",
         image: driver.image.url ? driver.image.url : "https://cdn.pixabay.com/photo/2013/07/12/15/36/motorsports-150157_960_720.png",
         dob: driver.dob,
+        teams: driver.teams,
         created: false 
     }
 })

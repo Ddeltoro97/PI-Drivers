@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT
     },
     image:{
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     nationality:{
       type: DataTypes.STRING
