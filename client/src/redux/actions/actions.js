@@ -19,7 +19,7 @@ export function getByName(name){
         const response = await axios(`http://localhost:3001/drivers/?name=${name}`);
         return dispatch({
             type: GET_BY_NAME,
-            payload: data
+            payload: response.data
         })
     }
 }

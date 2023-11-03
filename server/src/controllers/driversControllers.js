@@ -26,7 +26,7 @@ const searchByName = async (name) =>{
     } else{
         aux = 15;
     }
-    if (aux === 0) return "No driver was found with this name"
+    if (aux === 0) return []
 
     let first15 = [];
     for(let i = 0; i < aux; i++){

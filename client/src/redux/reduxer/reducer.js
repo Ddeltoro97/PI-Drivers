@@ -1,4 +1,4 @@
-import { GET_DRIVERS, GET_TEAMS } from "../actions/actions";
+import { GET_BY_NAME, GET_DRIVERS, GET_TEAMS } from "../actions/actions";
 
 let initialState = {
     allDrivers: [],
@@ -14,6 +14,11 @@ function rootReducer(state = initialState, action){
                 allDrivers: action.payload,
                 allDriversCopy: action.payload
             }
+        case GET_BY_NAME:
+            return{
+                ...state,
+                allDrivers: action.payload
+            }    
         case GET_TEAMS:
             return{
                 ...state,
