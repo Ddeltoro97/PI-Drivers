@@ -5,7 +5,6 @@ const getDriversHandler = async (req, res) =>{
    
    try { 
     if(name){
-        // const {driversOnDisplay} = req.body;
         const response = await searchByName(name.toLowerCase())
         res.status(200).json(response);
     }else{

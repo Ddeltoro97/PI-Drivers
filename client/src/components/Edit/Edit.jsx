@@ -1,25 +1,34 @@
 import axios from 'axios'
 import { useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import style from "./Create.css"
-import {getTeams } from '../../redux/actions/actions';
+import {getTeams, getDrivers } from '../../redux/actions/actions';
+import style from "./Edit.css"
 
-export default function Create(){
+export default function Edit(){
+
+    const {id} = useParams()
+
+    if(!isNaN(id)) return(<h2>404 Not Found</h2>)
 
     const dispatch = useDispatch();
     const allTeams = useSelector((state) => state.allTeams);
+    const allDrivers = useSelector((state) => state.allDriversCopy)
 
     useEffect(() =>{
         dispatch(getTeams())
+        dispatch(getDrivers())
     }, [dispatch]);
+
+    const driverInfo = allDrivers.find(driver => driver.id == id);
+    console.log(driverInfo)
 
     //BUTTONS
     const navigate = useNavigate()
 
     const handleSubmit = async() =>{
         const dob = `${date.year}-${date.month}-${date.day}`
-        await axios.post('http://localhost:3001/drivers', {
+        await axios.post(`http://localhost:3001/drivers/${id}`, {
             name: name,
             lastName: lastName,
             description: description,
@@ -29,14 +38,14 @@ export default function Create(){
             teams: teams
         })
 
-        navigate("/home"); 
+        navigate(`/driver/${id}`); 
         return
     }
 
     const handleCancel = () =>{
-        const confirmation = window.confirm("Are you sure you would like to cancel the creation of this driver?")
+        const confirmation = window.confirm("Are you sure you would like to cancel the editing of this driver?")
         if(confirmation){
-            navigate("/home");
+            navigate(`/driver/${id}`);
         }
     }
 
@@ -56,8 +65,8 @@ export default function Create(){
     }
 
     //SETTINGS FOR THE NAMES
-    const [name, setName] = useState("");
-    const [lastName, setLastName] = useState("");
+    const [name, setName] = useState(driverInfo.name);
+    const [lastName, setLastName] = useState(driverInfo.lastName);
 
     const handleName = (event) =>{
         setName(event.target.value);
@@ -67,7 +76,7 @@ export default function Create(){
     }
 
     //SETTINGS FOR THE NATIONALITY
-    const [nationality, setNationality] = useState("");
+    const [nationality, setNationality] = useState(driverInfo.nationality);
 
     const handleNationality = (event) =>{
         setNationality(event.target.value)
@@ -75,14 +84,13 @@ export default function Create(){
 
     //SETTINGS FOR THE IMAGE
 
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState(driverInfo.image);
 
     const handleImage = (event) =>{
         setImage(event.target.value);
     }
 
     //SETTINGS FOR THE DATE
-
     const [date, setDate] = useState({
         day: "",
         month: "",
@@ -125,7 +133,9 @@ export default function Create(){
    }
 
    //SETTINGS FOR THE TEAMS
-   const [teams, setTeams] = useState([]);
+
+   const teamsAux = driverInfo.Teams.map(team => team.name)
+   const [teams, setTeams] = useState(teamsAux);
    
    const handleTeams = (event) =>{
         if (event.target.value === '--Select Teams--') return
@@ -141,7 +151,7 @@ export default function Create(){
    }
 
    //SETTINGS FOR THE DESCRIPTION
-   const [description, setDescription] = useState("");
+   const [description, setDescription] = useState(driverInfo.description);
 
    const handleDescription = (event) =>{
         setDescription(
@@ -150,6 +160,7 @@ export default function Create(){
    }
 
 //    console.log(nationality)
+    if(!driverInfo) return (<h2>404 Not found</h2>)
     return(
         <div>
             
@@ -193,11 +204,11 @@ export default function Create(){
                             <option>{day}</option>
                         )
                     })}
-                    {date.month != '02' || date.year % 4 == "0" ? 
+                    {date.month != '2' || date.year % 4 == "0" ? 
                     <option>29</option> : ""}
-                    {date.month != '02' ?
+                    {date.month != '2' ?
                     <option>30</option> : ""}
-                    {date.month != '02' && date.month != '04' && date.month != '06' && date.month != '09' && date.month != '11' ? 
+                    {date.month != '2' && date.month != '4' && date.month != '6' && date.month != '9' && date.month != '11' ? 
                     <option>31</option> : ""}
                 </select>
                
@@ -227,7 +238,7 @@ export default function Create(){
 
             <button onClick={handleCancel}>Cancel</button>        
             <button onClick={handleClear}>Clear</button>
-            <button onClick={handleSubmit} disabled={isNaN(date.month) || isNaN(date.year) || isNaN(date.day) || !date.month || !date.year || !date.day || dateChecker() || !name || !lastName}>Create Driver</button>
+            <button onClick={handleSubmit} disabled={isNaN(date.month) || isNaN(date.year) || isNaN(date.day) || !date.month || !date.year || !date.day || dateChecker() || !name || !lastName}>Edit Driver</button>
             
                 
         </div>

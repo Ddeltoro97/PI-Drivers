@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react";
 import {useParams, useNavigate} from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import style from "./Detail.css"
 
 
@@ -36,12 +37,21 @@ export default function Detail(){
         renderTeams = arrayTeams.join(", ");
     }
 
+    const handleDelete = async() =>{
+        await axios.delete(`http://localhost:3001/drivers/${id}`)
+
+        navigate("/home");
+    }
+
 
     return(
         <div>
             <button onClick={goBack}>Go Back</button>
-            {driver.created? (
+            {driver.created? (<NavLink to={`/edit/${id}`} >
                 <button>Edit Driver</button>
+                </NavLink>
+            ): ("")}
+            {driver.created? (<button onClick={handleDelete}>Delete Driver</button>
             ): ("")}
             <h2>{driver.name}</h2>
             <h2>{driver.lastName}</h2>
@@ -49,6 +59,7 @@ export default function Detail(){
             <h2>{driver.nationality}</h2>
             <h2>{driver.dob}</h2>
             <h2>{renderTeams}</h2>
+            <h2>{driver.description}</h2>
         </div>
     )
 
