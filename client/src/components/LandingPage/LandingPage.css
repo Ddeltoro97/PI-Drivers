@@ -1,7 +1,25 @@
-.container{
-    display: flex;
+.Lcontainer{
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  margin: 0; 
+  padding: 0; 
+  background-image: url("https://i.etsystatic.com/40978778/r/il/d43a71/4646322928/il_fullxfull.4646322928_7c0o.jpg");
+  background: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+
 }
 
 .marginHaver{
     margin: 15px;
+}
+
+.title{
+    color: #E7E9EC;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }

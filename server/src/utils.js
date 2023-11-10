@@ -24,6 +24,7 @@ const simpleCleaner = (driver) =>{
         image: driver.image.url ? driver.image.url : "https://cdn.pixabay.com/photo/2013/07/12/15/36/motorsports-150157_960_720.png",
         dob: driver.dob,
         created: false,
+        nationality: driver.nationality,
         teams: driver.teams
     }
 }

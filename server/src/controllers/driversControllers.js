@@ -82,10 +82,19 @@ const editDriver = async(id, name, lastName, description, image, nationality, do
 
     const updatedDriver = await Driver.update(driver, {where: {id: id}, returning: true});
     const driverInstance = await Driver.findByPk(id);
-    driverInstance.setTeams([]);
 
-    for(let i = 0; i < teams.length; i++){
-        driverInstance.setTeams(teams[i]);
+
+    const teamsId = [];
+    for (const team of teams){
+        foundTeam = await Team.findOne({
+            where: {
+                name: team
+            }
+        })
+     teamsId.push(foundTeam);   
+    }
+    for (let i = 0; i < teamsId.length; i++){
+        await driverInstance.addTeam(teamsId[i]);
     }
 
     return updatedDriver;

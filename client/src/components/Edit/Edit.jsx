@@ -162,26 +162,47 @@ export default function Edit(){
 //    console.log(nationality)
     if(!driverInfo) return (<h2>404 Not found</h2>)
     return(
-        <div>
+        <div className='thisHolder'>
+            <div className='createContainer'>  
+                <h2 className='relevance'>Edit Driver:</h2>
+                <h2>Image Preview</h2>
+                <img className='previewImage' src={image} alt="Upload a valid image to see preview" /> 
+                <h2>Image URL</h2>
+                <input type="text" className='searchUrl' value={image} onChange={handleImage} />                 
+            </div>
+
+            <div className='theOtherContainer'>
+            <h2>Name*</h2>
+            <div className='error'>
+            {name.startsWith(" ") ? 
+            <h2>This is not a valid name</h2> : " "}
+            </div>
+            <input type="text" className='search' value={name} onChange={handleName}/>
+            <h2>Last Name*</h2>
+            <div className='error'>
+                
+            {lastName.startsWith(" ") ? 
+            <h2>This is not a valid last name</h2> : " "}
+            </div>
             
-            <h2>Name</h2>
-            <input type="text" value={name} onChange={handleName}/>
+            <input type="text" className='search' value={lastName} onChange={handleLastName}/>
+            <h2>Nationality*</h2>
 
-            <h2>Last Name</h2>
-            <input type="text" value={lastName} onChange={handleLastName}/>
+            <div className='error'>
+            {nationality.startsWith(" ") ? 
+            <h2>This is not a valid nationality</h2> : " "}
+            </div>
+            <input type="text" className='search' value={nationality} onChange={handleNationality} />
 
-            <h2>Image URL</h2>
-            <input type="text" value={image} onChange={handleImage} />
-
-            <h2>Nationality</h2>
-            <input type="text" value={nationality} onChange={handleNationality} />
-
-            <h2>Date Of Birth</h2>
+            <h2>Date Of Birth*</h2>
+            <div className='error'>
             {dateChecker()? 
-            <h4>Please select a valid date</h4> : ""}
+            <h2>Please select a valid date</h2> : ""}
+            </div>
+           
            
             <div>
-            <select name='year' onChange={handleDate}>
+            <select name='year' className='scroll' onChange={handleDate}>
                     <option>Year</option>
                     {years.map(year =>{
                         return(
@@ -189,7 +210,7 @@ export default function Edit(){
                         )
                     })}
                 </select>
-            <select name='month' onChange={handleDate}>
+            <select name='month' className='scroll' onChange={handleDate}>
                     <option>Month</option>
                     {months.map(month =>{
                         return(
@@ -197,18 +218,18 @@ export default function Edit(){
                         )
                     })}
                 </select>
-                <select name='day' onChange={handleDate}>
+                <select name='day' className='scroll' onChange={handleDate}>
                     <option>Day</option>
                     {days.map(day =>{
                         return(
                             <option>{day}</option>
                         )
                     })}
-                    {date.month != '2' || date.year % 4 == "0" ? 
+                    {date.month != '02' || date.year % 4 == "0" ? 
                     <option>29</option> : ""}
-                    {date.month != '2' ?
+                    {date.month != '02' ?
                     <option>30</option> : ""}
-                    {date.month != '2' && date.month != '4' && date.month != '6' && date.month != '9' && date.month != '11' ? 
+                    {date.month != '02' && date.month != '04' && date.month != '06' && date.month != '09' && date.month != '11' ? 
                     <option>31</option> : ""}
                 </select>
                
@@ -216,7 +237,7 @@ export default function Edit(){
             </div>
 
             <h2>Teams</h2>
-                <select name='team' onChange={handleTeams}>
+                <select name='team'className='scroll' onChange={handleTeams}>
                     <option>--Select Teams--</option>
                     {allTeams.map(team =>{
                         return(
@@ -227,7 +248,7 @@ export default function Edit(){
                 <div className='teamsHolder'>
                     {teams.map(team =>{
                         return(
-                            <a onClick={() => removeTeam(team)}>{team}</a>
+                            <a className='teamName' onClick={() => removeTeam(team)}>{team}</a>
                         )
                     })}
                 </div>
@@ -235,10 +256,14 @@ export default function Edit(){
                 <h2>Description</h2>
                 <textarea className='descriptionContainer' value={description} onChange={handleDescription}></textarea>
                 <hr />
+            <div>
+            <button className= "dButton"onClick={handleCancel}>Cancel</button>        
+            <button className='button' onClick={handleClear}>Clear</button>
+            <button className='button' onClick={handleSubmit} disabled={isNaN(date.month) || isNaN(date.year) || isNaN(date.day) || !date.month || !date.year || !date.day || dateChecker() || !name || !lastName || name.startsWith(" ") ||lastName.startsWith(" ") ||nationality.startsWith(" ") || !nationality }>Edit Driver</button>
 
-            <button onClick={handleCancel}>Cancel</button>        
-            <button onClick={handleClear}>Clear</button>
-            <button onClick={handleSubmit} disabled={isNaN(date.month) || isNaN(date.year) || isNaN(date.day) || !date.month || !date.year || !date.day || dateChecker() || !name || !lastName}>Edit Driver</button>
+            </div>
+            </div>
+         
             
                 
         </div>

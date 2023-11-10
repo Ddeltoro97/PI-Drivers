@@ -15,8 +15,33 @@ export default function Home(){
         team: "--Team--"
     });
 
+    const [order, setOrder] = useState("--Order--");
 
     let renderDrivers = allDrivers;
+
+    if(order == "Ascending"){
+        renderDrivers.sort((a, b) =>{
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+    
+            if(nameA < nameB) return -1;
+            if(nameB > nameA) return 1;
+            return 0
+        })
+    }
+    if(order == "Descending"){
+        renderDrivers.sort((a, b) =>{
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+    
+            if(nameA > nameB) return -1;
+            if(nameB < nameA) return 1;
+            return 0
+        })
+    }
+    if(order == "--Order--") renderDrivers = allDrivers
+   
+
     if(search.origin == "--Origin--") renderDrivers = allDrivers;
     if(search.origin == "DB") renderDrivers = allDrivers.filter(driver => driver.created == true);
     if(search.origin == "API") renderDrivers = allDrivers.filter(driver => driver.created != true);
@@ -69,6 +94,9 @@ export default function Home(){
         dispatch(getByName(event.target.value));
     }
 
+    const handleOrder = () =>{
+        setOrder(event.target.value)
+    }
 
     useEffect(() =>{
         dispatch(getDrivers())
@@ -79,11 +107,12 @@ export default function Home(){
     // console.log(finalRender[1].teams)
     // console.log(search);
 
+    console.log(order)
     return (
         <div>
-            <div>
+            <div className="bar">
+             <SearchBar handleChange={handleChange} handleSearch={handleSearch} handleOrder={handleOrder}/>
             </div>
-            <SearchBar handleChange={handleChange} handleSearch={handleSearch}/>
             <div className="container">
             {finalRender?.map(driver =>
                 <Driver
@@ -94,7 +123,7 @@ export default function Home(){
                     teams={driver.teams}
                     Teams={driver.Teams}/>)}
             {finalRender.length === 0  ?
-            <h2>No drivers match the criteria</h2> : ""}      
+            <h2 className="title">No drivers match the criteria</h2> : ""}      
             </div>
         </div>
     )

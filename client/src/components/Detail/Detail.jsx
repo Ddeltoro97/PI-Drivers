@@ -38,28 +38,48 @@ export default function Detail(){
     }
 
     const handleDelete = async() =>{
-        await axios.delete(`http://localhost:3001/drivers/${id}`)
 
-        navigate("/home");
+        const confirmation = window.confirm("Are you sure you would like to delete this driver?")
+        if(confirmation){
+            await axios.delete(`http://localhost:3001/drivers/${id}`)
+            navigate("/home");
+        }
     }
-
 
     return(
         <div>
-            <button onClick={goBack}>Go Back</button>
+            <div className="buttonHolder">
+            <button onClick={goBack} className="button">Go Back</button>
+            <div>
             {driver.created? (<NavLink to={`/edit/${id}`} >
-                <button>Edit Driver</button>
+                <button className="button">Edit Driver</button>
                 </NavLink>
             ): ("")}
-            {driver.created? (<button onClick={handleDelete}>Delete Driver</button>
+            {driver.created? (<button onClick={handleDelete} className="dButton">Delete Driver</button>
             ): ("")}
-            <h2>{driver.name}</h2>
-            <h2>{driver.lastName}</h2>
-            <img src={driver.image} onError={addDefault} />
-            <h2>{driver.nationality}</h2>
-            <h2>{driver.dob}</h2>
-            <h2>{renderTeams}</h2>
-            <h2>{driver.description}</h2>
+            </div>
+          
+            </div>
+            <div className="detailHolder">
+                <div className="mainInfo">
+                    <div className="nameInfo">
+                        <h2 className="text">{driver.name}</h2>
+                        <h2 className="text">{driver.lastName}</h2>
+                        
+                    </div>
+                    <img src={driver.image} onError={addDefault} className="dImage" />
+                    <h2>{driver.dob}</h2>
+                    <h2>{driver.nationality}</h2>
+
+                </div>
+
+                <div className="moreInfo">
+                    <h1>Teams</h1>
+                    <h2>{renderTeams}</h2>
+                    <h1>Description</h1>
+                    <h2>{driver.description}</h2>
+                </div>
+            </div>
         </div>
     )
 

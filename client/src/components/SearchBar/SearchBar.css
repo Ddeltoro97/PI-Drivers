@@ -1,0 +1,46 @@
+@font-face {
+    font-family: myFont;
+    src: url(../fonts/Formula1-Regular_web_0.ttf);
+}
+
+.search{
+    height: 35px;
+    width: 200px;
+    margin: 10px;
+    color: #E7E9EC;
+    background-color: #242424;
+    font-family: myFont;
+    font-size: 15px;
+}
+
+.search:focus{
+    outline: 1px solid #FFC300;
+}
+
+.scroll{
+    height: 32px;
+    margin: 2px;
+    color: #E7E9EC;
+    background-color: #242424;
+    font-family: myFont;
+
+}
+
+.scroll:hover{
+    cursor: pointer;
+}
+
+.scroll:focus{
+    outline: 1px solid #FFC300;
+}
+
+
+.button{
+    background-color: #1C3A68; 
+    color: #E7E9EC;
+    margin: 3px;
+}
+
+.button:hover{
+    border: 1px solid black;
+}

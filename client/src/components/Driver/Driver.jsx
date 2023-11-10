@@ -13,7 +13,8 @@ export default function Driver(props){
     let renderTeams = "";
 
     if (typeof(teams) == "string"){
-        renderTeams = teams;
+        renderTeams = teams.split(",");
+        renderTeams = renderTeams.join(", ")
     } 
 
     if(Teams){
@@ -28,11 +29,19 @@ export default function Driver(props){
     }
 
     return(
-        <div onClick={loadDetail}>
-            <h2>{name}</h2>
-            <h2>{lastName}</h2>
-            <img src={image} onError={addDefault} className="driverPic"/>
-            <h2>{renderTeams}</h2>
+        <div className="card" onClick={loadDetail}>
+            <div className="nameHolder">
+                <h2 className="name">{name}</h2>
+                <h2 className="name">{lastName}</h2>
+            </div>
+
+            <div className="picContainer">
+                <img src={image} onError={addDefault} className="driverPic"/>
+            </div>
+            
+            <div className="teamContainer">
+                <h2>{renderTeams}</h2>
+            </div>
         </div>
     )
 }

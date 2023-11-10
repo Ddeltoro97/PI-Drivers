@@ -1,13 +1,82 @@
+.thisHolder{
+    font-family: myFont;
+    color: #E7E9EC;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 770px){
+   .thisHolder{
+    display: block;
+   }
+}
+
+
 .descriptionContainer{
-    width: 100%;
+    width: 280px;
     height: 85px;
     line-height: 1;
     vertical-align: top;
+    background-color: #242424;
+    color: #E7E9EC;
 }
 
 .teamsHolder{
     height: 100px;
-    width: 300px;
+    width: 280px;
     border-style: solid;
-    background-color: blue;
+    background-color: #242424;
+}
+
+.teamName{
+    color: #E7E9EC;
+    font-size: 12px;
+    margin: 3px;
+}
+
+.teamName:hover{
+    cursor: pointer;
+    color: #FFC300;
+}
+
+.textBox{
+    background-color: #242424;
+    color: #E7E9EC;
+}
+
+.relevance{
+    font-size: 50px;
+}
+
+.createContainer{
+    margin-left: 55px;
+    margin-right: 55px;
+}
+
+.theOtherContainer{
+    margin-left: 55px;
+    margin-right: 55px;
+    display: grid;
+    place-items: center;
+}
+
+.searchUrl{
+    height: 35px;
+    width: 250px;
+    margin: 10px;
+    color: #E7E9EC;
+    background-color: #242424;
+    font-family: myFont;
+    font-size: 15px;
+}
+
+.previewImage{
+    max-width: 300px;
+    border: 1px solid black;
+}
+
+.error{
+    font-size: 10px;
+    color: #FFC300;
+    height: 40px;
 }
