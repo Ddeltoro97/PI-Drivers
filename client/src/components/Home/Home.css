@@ -16,3 +16,13 @@ body{
     left: 30%;
     margin-top: 25px;
 }
+
+.flex{
+    display: flex;
+    justify-content: center;
+}
+
+.page{
+    color: white;
+    font-style: myFont;
+}

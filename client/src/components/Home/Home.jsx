@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { getByName, getDrivers } from "../../redux/actions/actions"
 import Driver from "../Driver/Driver"
 import SearchBar from "../SearchBar/SearchBar"
+import Pagination from "./Pagination"
 import styles from "./Home.css"
 
 export default function Home(){
@@ -39,7 +40,7 @@ export default function Home(){
             return 0
         })
     }
-    if(order == "--Order--") renderDrivers = allDrivers
+    if(order == "--Order--") renderDrivers = allDrivers;
    
 
     if(search.origin == "--Origin--") renderDrivers = allDrivers;
@@ -87,34 +88,44 @@ export default function Home(){
             ...search,
             [event.target.name]: event.target.value
         });
+        resetPage()
+
     }
 
     const handleSearch = (event) =>{
         event.preventDefault()
         dispatch(getByName(event.target.value));
+        resetPage()
+
     }
 
-    const handleOrder = () =>{
+    const handleOrder = (event) =>{
+        event.preventDefault()
         setOrder(event.target.value)
+        resetPage()
     }
 
     useEffect(() =>{
         dispatch(getDrivers())
     }, [dispatch]);
 
-    console.log(finalRender)
-    // console.log(finalRender[0].Teams)
-    // console.log(finalRender[1].teams)
-    // console.log(search);
+    const [page, setPage] = useState(1);
+    const [byPage, setByPage] = useState(9);
 
-    console.log(order)
+    let max = Math.ceil(finalRender.length/ byPage)
+
+    const resetPage = () =>{
+        setPage(1)
+    }
+   
     return (
         <div>
             <div className="bar">
-             <SearchBar handleChange={handleChange} handleSearch={handleSearch} handleOrder={handleOrder}/>
+             <SearchBar handleChange={handleChange} handleSearch={handleSearch} handleOrder={handleOrder} resetPage={resetPage}/>
             </div>
             <div className="container">
-            {finalRender?.map(driver =>
+            {finalRender?.slice((page - 1) * byPage, (page - 1) * byPage + byPage)
+            .map(driver =>
                 <Driver
                     id={driver.id}
                     name={driver.name}
@@ -125,6 +136,7 @@ export default function Home(){
             {finalRender.length === 0  ?
             <h2 className="title">No drivers match the criteria</h2> : ""}      
             </div>
+            <Pagination page={page} setPage={setPage} max={max}/>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { getTeams } from "../../redux/actions/actions"
 import styles from "./SearchBar.css"
 
-export default function SearchBar({handleChange, handleSearch, handleOrder}){
+export default function SearchBar({handleChange, handleSearch, handleOrder, resetPage}){
 
     const dispatch = useDispatch()
     const allTeams = useSelector((state) => state.allTeams);
@@ -23,10 +23,10 @@ export default function SearchBar({handleChange, handleSearch, handleOrder}){
             
             <input name="name" placeholder="Search Driver"  type="search" className="search" onChange={handleSearch}></input>
 
-            <select name="order" className="scroll" onChange={handleOrder}>
-                <option>--Order--</option>
-                <option>Ascending</option>
-                <option>Descending</option>
+            <select name="order" onChange={handleOrder} className="scroll">
+                <option value="--Order--">--Order--</option>
+                <option value="Ascending">Ascending</option>
+                <option value="Descending">Descending</option>
             </select>
                 <select name="origin" onChange={handleChange} className="scroll">
                     <option>--Origin--</option>

@@ -3,7 +3,7 @@ import axios from "axios";
 export const GET_DRIVERS = "GET_DRIVERS"
 export const GET_TEAMS = "GET_TEAMS"
 export const GET_BY_NAME = "GET_BY_NAME"
-export const FILTER_ORIGIN = "FILTER_ORIGIN"
+export const CHANGE_ORDER = "CHANGE_ORDER"
 
 export function getDrivers(){
     return async function(dispatch){
@@ -33,6 +33,13 @@ export function getTeams(){
             type: GET_TEAMS,
             payload: response.data.sort((a, b) => a.name.localeCompare(b.name))
         })
+    }
+}
+
+export function changeOrder(order){
+    return{
+        type: CHANGE_ORDER,
+        payload: order
     }
 }
 
