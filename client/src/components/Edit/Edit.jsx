@@ -28,7 +28,7 @@ export default function Edit(){
 
     const handleSubmit = async() =>{
         const dob = `${date.year}-${date.month}-${date.day}`
-        await axios.post(`http://localhost:3001/drivers/${id}`, {
+        await axios.post(`https://server-drivers2.onrender.com/${id}`, {
             name: name,
             lastName: lastName,
             description: description,
