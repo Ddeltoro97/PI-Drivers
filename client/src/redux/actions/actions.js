@@ -17,7 +17,7 @@ export function getDrivers(){
 
 export function getByName(name, renderedDrivers){
     return async function (dispatch){
-        const response = await axios(`https://server-drivers2.onrender.com/?name=${name}`);
+        const response = await axios(`https://server-drivers2.onrender.com/drivers/?name=${name}`);
         return dispatch({
             type: GET_BY_NAME,
             payload: response.data

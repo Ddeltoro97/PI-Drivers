@@ -16,7 +16,7 @@ export default function Detail(){
     }
 
     useEffect(() =>{
-        axios.get(`https://server-drivers2.onrender.com/${id}`)
+        axios(`https://server-drivers2.onrender.com/drivers/${id}`)
         .then(response =>{
            setDriver(response.data);
         });
@@ -41,7 +41,7 @@ export default function Detail(){
 
         const confirmation = window.confirm("Are you sure you would like to delete this driver?")
         if(confirmation){
-            await axios.delete(`https://server-drivers2.onrender.com/${id}`)
+            await axios.delete(`https://server-drivers2.onrender.com/drivers/${id}`)
             navigate("/home");
         }
     }
