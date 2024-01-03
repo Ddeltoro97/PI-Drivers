@@ -136,7 +136,8 @@ export default function Home(){
             {finalRender.length === 0  ?
             <h2 className="title">No drivers match the criteria</h2> : ""}      
             </div>
-            <Pagination page={page} setPage={setPage} max={max}/>
+            {max > 0 && <Pagination page={page} setPage={setPage} max={max}/>}
+            {/* <Pagination page={page} setPage={setPage} max={max}/> */}
         </div>
     )
 }

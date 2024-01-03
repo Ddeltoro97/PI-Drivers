@@ -11,10 +11,11 @@ body{
 }
 
 .bar{
-    position: absolute;
+    /* position: absolute;
     top: 20px;
     left: 30%;
-    margin-top: 25px;
+    margin-top: 25px; */
+    margin: 0 auto;
 }
 
 .flex{
