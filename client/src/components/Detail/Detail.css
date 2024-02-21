@@ -1,13 +1,12 @@
 .thisHolder{
-    font-family: myFont;
-    color: #E7E9EC;
+    font-family: "Share Tech Mono";
 }
 
 .buttonHolder{
     display: flex;
     justify-content: space-between;
-    width: 500px;
-    position: absolute;
+    /* width: 500px; */
+    /* position: absolute; */
     top: 20px;
     left: 30%;
 }
@@ -25,10 +24,11 @@
 
 .detailHolder{
     margin-top: 35px;
-    color: #EAE3E3;
+    color: #D3C015;
     display: flex;
     flex-direction: wrap;
-    font-family: myFont;
+    font-family: "Share Tech Mono";
+
 }
 
 @media screen and (max-width: 770px){
@@ -49,6 +49,9 @@
     justify-content: center;
     align-items: center;
     margin: 10px;
+    height: 30px;
+    font-family: "Share Tech Mono";
+    font-size: 20px;
 }
 
 
@@ -56,3 +59,15 @@
     margin: 2px;
 }
 
+.moreInfo{
+    width: 50vw;
+
+    @media screen and (max-width: 600px) {
+        width: auto;
+    }
+}
+
+.description{
+    font-size: 20px;
+    color: #AE9E12;
+}

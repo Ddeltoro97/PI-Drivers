@@ -1,8 +1,12 @@
 .thisHolder{
-    font-family: myFont;
+    font-family: Share Tech Mono;
     color: #E7E9EC;
     display: flex;
     justify-content: center;
+}
+
+.thisHolder h2{
+    color: #FFC300;
 }
 
 @media screen and (max-width: 770px){
@@ -19,6 +23,13 @@
     vertical-align: top;
     background-color: #242424;
     color: #E7E9EC;
+    border-radius: 5px;
+    border: 1px solid #242424;
+    font-family: Share Tech Mono;
+}
+
+.descriptionContainer:focus{
+    outline: 1px solid #FFC300;
 }
 
 .teamsHolder{
@@ -26,6 +37,9 @@
     width: 280px;
     border-style: solid;
     background-color: #242424;
+    font-family: Share Tech Mono;
+    border: 1px solid #242424;
+    border-radius: 5px
 }
 
 .teamName{
@@ -68,6 +82,12 @@
     background-color: #242424;
     font-family: myFont;
     font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #242424
+}
+
+.searchUrl:focus{
+    outline: 1px solid #FFC300;
 }
 
 .previewImage{

@@ -3,6 +3,15 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* background: linear-gradient(90deg, rgba(101,8,4,1) 4%, rgba(31,7,1,1) 58%, rgba(175,9,18,1) 93%); */
+
+}
+
+body{
+  /* background-image: url("https://static.vecteezy.com/system/resources/thumbnails/001/297/064/original/4k-red-dot-on-black-background-animation-background-seamless-loop.jpg"); */
+  background: linear-gradient(90deg, rgba(101,8,4,1) 4%, rgba(31,7,1,1) 58%, rgba(175,9,18,1) 93%);
+
+  
 }
 
 @keyframes logo-spin {

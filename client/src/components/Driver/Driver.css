@@ -1,82 +1,90 @@
 @font-face {
-    font-family: myFont;
-    src: url(../fonts/Formula1-Regular_web_0.ttf);
+  font-family: RobotFont;
+  src: url(../fonts/Sdroboticsdemo-X3led.ttf);
 }
 
-.picContainer{
-    height: 200px;
-    width: 200px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
+.picContainer {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
 }
 
-.driverPic{
-    width: 140px;
-    border: 1px solid black;
-    /* height: 150px; */
+.driverPic {
+  width: 140px;
+  border: 1px solid black;
+  /* height: 150px; */
 }
 
-.card{
-    /* background-image: url('https://cdn.wallpapersafari.com/10/50/mZT256.jpg'); */
-    background-image: url('https://www.creativefabrica.com/wp-content/uploads/2023/08/21/black-and-red-abstract-background-Graphics-77368127-1.jpg');
-    background-size: cover;
-    color: #FFC300;
-    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
-    transition: transform 600ms;
-    border: 3px solid #FFC300;
-    font-family: myFont;
-    width: 220px;
-    height: 400px;
-    margin: 20px;
-    display: grid;
-    place-items: center;
-    border-radius: 15%;
+.card {
+
+
+  background: linear-gradient(
+    86deg,
+    rgba(73, 3, 3, 1) 24%,
+    rgba(55, 5, 9, 1) 58%,
+    rgba(52, 1, 4, 1) 86%
+  );
+
+  box-shadow: 4px 5px 9px #5C0B03;
+
+  background-size: cover;
+  color: #D3C015;
+  /* text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black,
+    -1px 1px 0 black; */
+  transition: transform 600ms;
+  border-top: 18px solid #120303;
+  font-family: "Share Tech Mono";
+
+  width: 220px;
+  height: 400px;
+  margin: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px 4px 20px 20px;
 }
 
-@keyframes shine{
-    0%{
-        background-position: 0% 0;
-    }
-    100%{
-        background-position: 170% 0;
-    }
+@keyframes shine {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 170% 0;
+  }
 }
 
 .card:hover,
-.card:focus-visible{
-    transform: translateY(-2rem);
-    cursor: pointer;
-    opacity: 120%;
-    animation: shine 2s linear infinite;
+.card:focus-visible {
+  transform: translateY(-2rem);
+  cursor: pointer;
+  opacity: 120%;
+  animation: shine 2s linear infinite;
+  /* box-shadow: 4px 14px 5px #ce0c0c; */
 }
 
-.teamContainer{
-    font-size: 8px;
-    /* position: relative; */
-    top: 40px;
-    display: flex;
-    flex-direction: wrap;
-    margin: 5px;
+.teamContainer {
+  font-size: 8px;
+  /* position: relative; */
+  top: 40px;
+  display: flex;
+  flex-direction: wrap;
+  margin: 5px;
 }
 
-.nameHolder{
-    /* display: flex; */
-    /* position: absolute; */
-    top: 10%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(0%, 0%);
-    pointer-events: none;
-    font-size: 18px;
+.nameHolder {
+  /* display: flex; */
+  /* position: absolute; */
+  top: 10%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(0%, 0%);
+  pointer-events: none;
+  font-size: 18px;
 }
 
-
-.name{
-    margin: 3px;
-    text-align: center;
-    justify-content: center;
+.name {
+  margin: 3px;
+  text-align: center;
+  justify-content: center;
 }
-
-
-

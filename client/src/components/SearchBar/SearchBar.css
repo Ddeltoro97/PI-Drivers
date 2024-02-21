@@ -9,8 +9,10 @@
     margin: 10px;
     color: #E7E9EC;
     background-color: #242424;
-    font-family: myFont;
+    font-family: Share Tech Mono;
     font-size: 15px;
+    border: 1px solid #242424;
+    border-radius: 5px
 }
 
 .search:focus{
@@ -18,11 +20,13 @@
 }
 
 .scroll{
-    height: 32px;
+    height: 35px;
     margin: 2px;
     color: #E7E9EC;
     background-color: #242424;
-    font-family: myFont;
+    font-family: Share Tech Mono;
+    border: 1px solid #242424;
+    border-radius: 5px
 
 }
 

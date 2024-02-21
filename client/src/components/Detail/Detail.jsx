@@ -1,4 +1,5 @@
 import axios from "axios"
+import {useTypewriter, Cursor} from 'react-simple-typewriter';
 import { useState, useEffect } from "react";
 import {useParams, useNavigate} from 'react-router-dom';
 import { NavLink } from "react-router-dom";
@@ -46,6 +47,15 @@ export default function Detail(){
         }
     }
 
+    const fullName = `${driver.name} ${driver.lastName}` 
+
+    const [text] = useTypewriter({
+        words: [fullName],
+        loop: {},
+        typeSpeed: 120,
+        deleteSpeed: 120
+    })
+
     return(
         <div>
             <div className="buttonHolder">
@@ -63,21 +73,20 @@ export default function Detail(){
             <div className="detailHolder">
                 <div className="mainInfo">
                     <div className="nameInfo">
-                        <h2 className="text">{driver.name}</h2>
-                        <h2 className="text">{driver.lastName}</h2>
+                        <h2 className="text">{text}</h2>
                         
                     </div>
                     <img src={driver.image} onError={addDefault} className="dImage" />
-                    <h2>{driver.dob}</h2>
-                    <h2>{driver.nationality}</h2>
+                    <h2 className="description">{driver.dob}</h2>
+                    <h2 className="description">{driver.nationality}</h2>
 
                 </div>
 
                 <div className="moreInfo">
                     <h1>Teams</h1>
-                    <h2>{renderTeams}</h2>
+                    <h2 className="description">{renderTeams}</h2>
                     <h1>Description</h1>
-                    <h2>{driver.description}</h2>
+                    <h2 className="description">{driver.description}</h2>
                 </div>
             </div>
         </div>

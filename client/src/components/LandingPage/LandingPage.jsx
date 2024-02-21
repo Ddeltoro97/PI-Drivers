@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import axios from "axios";
 import styles from "./LandingPage.css";
 
 export default function LandingPage(){
@@ -7,6 +8,7 @@ export default function LandingPage(){
 
     const goHome = () =>{
         navigate("/home");
+
     }
 
     return(
