@@ -24,3 +24,14 @@
     color: white;
     font-style: myFont;
 }
+
+.title{
+    color: #D3C015;
+    font-family: "Share Tech Mono";
+    font-size: 30px;
+}
+
+.paginationHolder{
+    font-family: "Share Tech Mono";
+    color: #D3C015;
+}

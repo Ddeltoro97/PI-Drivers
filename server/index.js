@@ -4,7 +4,7 @@ const { conn } = require('./src/db.js');
 const PORT = process.env.PORT || 3001;
 const {getTeamsFromApi} = require('./src/utils.js');
 
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 })
