@@ -1,6 +1,13 @@
 const axios = require("axios");
 const {Team} = require("./db");
 
+const fetchInfo = async () =>{
+    const teamCount = await Team.count();
+    if (teamCount == 0){
+        await getTeamsFromApi()
+    }
+}
+
 
 const infoCleaner = (array) => array.map(driver =>{
     return {
@@ -71,5 +78,6 @@ const getTeamsFromApi = async() =>{
 module.exports = {
     infoCleaner,
     simpleCleaner,
-    getTeamsFromApi
+    getTeamsFromApi,
+    fetchInfo
 }
