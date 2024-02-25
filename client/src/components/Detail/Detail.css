@@ -1,74 +1,73 @@
-.thisHolder{
-    font-family: "Share Tech Mono";
+.thisHolder {
+  font-family: "Share Tech Mono";
 }
 
-.buttonHolder{
-    display: flex;
-    justify-content: space-between;
-    /* width: 500px; */
-    /* position: absolute; */
-    top: 20px;
-    left: 30%;
+.buttonHolder {
+  display: flex;
+  justify-content: space-between;
+  /* width: 500px; */
+  /* position: absolute; */
+  top: 20px;
+  left: 30%;
 }
 
-.dButton{
-    background-color: #B01414; 
-    margin: 3px;
-    border: 1px solid #482828;
-    color: #E7E9EC;
-    font-family: "Share Tech Mono";
+.dButton {
+  background-color: #b01414;
+  margin: 3px;
+  border: 1px solid #482828;
+  color: #e7e9ec;
+  font-family: "Share Tech Mono";
 }
 
-.dImage{
-    width: 300px;
+.dImage {
+  width: 300px;
 }
 
-.detailHolder{
-    margin-top: 35px;
-    color: #D3C015;
-    display: flex;
-    flex-direction: wrap;
-    font-family: "Share Tech Mono";
-
+.detailHolder {
+  margin-top: 35px;
+  color: #d3c015;
+  display: flex;
+  flex-direction: wrap;
+  font-family: "Share Tech Mono";
 }
 
-@media screen and (max-width: 770px){
-    .detailHolder{
-        display: grid;
-        place-items: center;
-    }
+@media screen and (max-width: 770px) {
+  .detailHolder {
+    display: grid;
+    place-items: center;
+  }
 }
 
-.mainInfo{
-    height: 600px;
-    width: 300px;
-    margin: 10px;
+.mainInfo {
+  height: 600px;
+  width: 300px;
+  margin: 10px;
 }
 
-.nameInfo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    height: 30px;
-    font-family: "Share Tech Mono";
-    font-size: 20px;
+.nameInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  height: 30px;
+  font-family: "Share Tech Mono";
+  font-size: 20px;
+  white-space: nowrap;
 }
 
-
-.text{
-    margin: 2px;
+.text {
+  margin: 2px;
 }
 
-.moreInfo{
-    width: 50vw;
+.moreInfo {
+  width: 50vw;
 
-    @media screen and (max-width: 600px) {
-        width: auto;
-    }
+  @media screen and (max-width: 600px) {
+    width: auto;
+  }
 }
 
-.description{
-    font-size: 20px;
-    color: #AE9E12;
+.description {
+  font-size: 20px;
+  color: #ae9e12;
 }
