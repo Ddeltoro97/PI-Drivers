@@ -17,7 +17,7 @@ export default function Detail(){
     }
 
     useEffect(() =>{
-        axios(`http://localhost:3001/drivers/${id}`)
+        axios(`https://pi-drivers-ngsm.onrender.com/drivers/${id}`)
         .then(response =>{
            setDriver(response.data);
         });
@@ -42,7 +42,7 @@ export default function Detail(){
 
         const confirmation = window.confirm("Are you sure you would like to delete this driver?")
         if(confirmation){
-            await axios.delete(`http://localhost:3001/drivers/${id}`)
+            await axios.delete(`https://pi-drivers-ngsm.onrender.com/drivers/${id}`)
             navigate("/home");
         }
     }
