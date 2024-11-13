@@ -42,7 +42,7 @@ export default function Detail(){
 
         const confirmation = window.confirm("Are you sure you would like to delete this driver?")
         if(confirmation){
-            await axios.delete(`https://server-drivers2.onrender.com/drivers/${id}`)
+            await axios.delete(`http://localhost:3001/drivers/${id}`)
             navigate("/home");
         }
     }

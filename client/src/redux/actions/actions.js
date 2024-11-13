@@ -7,7 +7,7 @@ export const CHANGE_ORDER = "CHANGE_ORDER"
 
 export function getDrivers(){
     return async function(dispatch){
-        const response = await axios("http://localhost:3001/drivers");
+        const response = await axios("https://pi-drivers-ngsm.onrender.com/drivers");
         return dispatch({
             type: GET_DRIVERS,
             payload: response.data
@@ -17,7 +17,7 @@ export function getDrivers(){
 
 export function getByName(name, renderedDrivers){
     return async function (dispatch){
-        const response = await axios(`http://localhost:3001/drivers/?name=${name}`);
+        const response = await axios(`https://pi-drivers-ngsm.onrender.com/drivers/?name=${name}`);
         return dispatch({
             type: GET_BY_NAME,
             payload: response.data
@@ -28,7 +28,7 @@ export function getByName(name, renderedDrivers){
 
 export function getTeams(){
     return async function(dispatch){
-        const response = await axios("http://localhost:3001/teams");
+        const response = await axios("https://pi-drivers-ngsm.onrender.com/teams");
         return dispatch({
             type: GET_TEAMS,
             payload: response.data.sort((a, b) => a.name.localeCompare(b.name))

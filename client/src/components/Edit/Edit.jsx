@@ -8,6 +8,7 @@ import style from "./Edit.css"
 export default function Edit(){
 
     const {id} = useParams()
+    console.log(id);
 
     if(!isNaN(id)) return(<h2>404 Not Found</h2>)
 
@@ -21,25 +22,30 @@ export default function Edit(){
     }, [dispatch]);
 
     const driverInfo = allDrivers.find(driver => driver.id == id);
-    console.log(driverInfo)
+    //console.log(driverInfo)
 
     //BUTTONS
     const navigate = useNavigate()
 
     const handleSubmit = async() =>{
         const dob = `${date.year}-${date.month}-${date.day}`
-        await axios.post(`http://localhost:3001/${id}`, {
-            name: name,
-            lastName: lastName,
-            description: description,
-            image: image,
-            nationality: nationality,
-            dob: dob,
-            teams: teams
-        })
-
-        navigate(`/driver/${id}`); 
-        return
+        try {
+            await axios.post(`http://localhost:3001/drivers/${id}`, {
+                name: name,
+                lastName: lastName,
+                description: description,
+                image: image,
+                nationality: nationality,
+                dob: dob,
+                teams: teams
+            })
+    
+            navigate(`/driver/${id}`); 
+            return
+        } catch (error) {
+            console.log(error)
+        }
+     
     }
 
     const handleCancel = () =>{
