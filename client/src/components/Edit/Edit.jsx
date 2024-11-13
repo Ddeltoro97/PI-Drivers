@@ -28,7 +28,7 @@ export default function Edit(){
 
     const handleSubmit = async() =>{
         const dob = `${date.year}-${date.month}-${date.day}`
-        await axios.post(`https://server-drivers2.onrender.com/drivers/${id}`, {
+        await axios.post(`pi-drivers-production-47f5.up.railway.app/drivers/${id}`, {
             name: name,
             lastName: lastName,
             description: description,

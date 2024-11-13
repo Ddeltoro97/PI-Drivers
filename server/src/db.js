@@ -20,7 +20,7 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
   native: false, 
   }
 );
-const basename = path.basename(__filename);
+const basename = path.basename(__filename)
 
 const modelDefiners = [];
 

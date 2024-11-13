@@ -17,7 +17,7 @@ export default function Detail(){
     }
 
     useEffect(() =>{
-        axios(`https://server-drivers2.onrender.com/drivers/${id}`)
+        axios(`pi-drivers-production-47f5.up.railway.app/drivers/${id}`)
         .then(response =>{
            setDriver(response.data);
         });

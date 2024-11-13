@@ -17,7 +17,7 @@ export function getDrivers(){
 
 export function getByName(name, renderedDrivers){
     return async function (dispatch){
-        const response = await axios(`https://server-drivers2.onrender.com/drivers/?name=${name}`);
+        const response = await axios(`pi-drivers-production-47f5.up.railway.app/drivers/?name=${name}`);
         return dispatch({
             type: GET_BY_NAME,
             payload: response.data
@@ -28,7 +28,7 @@ export function getByName(name, renderedDrivers){
 
 export function getTeams(){
     return async function(dispatch){
-        const response = await axios("https://server-drivers2.onrender.com/teams");
+        const response = await axios("pi-drivers-production-47f5.up.railway.app/teams");
         return dispatch({
             type: GET_TEAMS,
             payload: response.data.sort((a, b) => a.name.localeCompare(b.name))

@@ -19,7 +19,7 @@ export default function Create(){
 
     const handleSubmit = async() =>{
         const dob = `${date.year}-${date.month}-${date.day}`
-        await axios.post('https://server-drivers2.onrender.com/drivers', {
+        await axios.post('pi-drivers-production-47f5.up.railway.app/drivers', {
             name: name,
             lastName: lastName,
             description: description,
