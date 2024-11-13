@@ -71,7 +71,7 @@ const getTeamsFromApi = async() =>{
         // console.log(teamsAsObjects);    
         await Team.bulkCreate(teamsAsObjects);
     } catch (error) {
-        console.log("Error");
+        console.log("Error")
     }
 }
 
