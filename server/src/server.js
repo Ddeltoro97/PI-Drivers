@@ -8,7 +8,7 @@ const server = express();
 server.use(morgan("dev"));
 server.use(express.json());
 server.use(cors({
-    origin: "http://pi-drivers-7es2b64g6-ddeltoro97s-projects.vercel.app",}
+    origin: "*",}
 ));
 
 server.use(router);
