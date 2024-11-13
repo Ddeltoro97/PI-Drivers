@@ -17,7 +17,7 @@ export default function Detail(){
     }
 
     useEffect(() =>{
-        axios(`pi-drivers-production-47f5.up.railway.app/drivers/${id}`)
+        axios(`http://localhost:3001/drivers/${id}`)
         .then(response =>{
            setDriver(response.data);
         });

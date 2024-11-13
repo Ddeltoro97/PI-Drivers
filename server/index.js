@@ -12,4 +12,4 @@ server.listen(PORT, () => {
 .then(() =>{
   fetchInfo();
 })
-.catch(error => console.error(error))
+.catch(error => console.error(error));
